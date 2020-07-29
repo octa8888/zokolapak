@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 
 /*
@@ -31,3 +32,6 @@ Route::get('users/{id}', function ($id) {
         ]
     );
 });
+
+Route::get('products', 'ProductController@getAllProducts');
+Route::post('products', 'ProductController@insertProduct');
