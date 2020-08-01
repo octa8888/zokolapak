@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 
 /*
@@ -14,24 +15,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
-Route::get('users/{id}', function ($id) {
-    return response()->json(
-        [
-            [
-                "name"=>"ashiap".$id,
-                "email"=>"a@a.com"
-            ],[
-                "name"=>"atidakshiap",
-                "email"=>"n@n.com"
-            ]
-        ]
-    );
-});
+Route::get('users', 'UserController@getAllUser');
+Route::get('user/{id}', 'UserController@getUserById');
+Route::post('user', 'UserController@insertUser');
 
-Route::get('products', 'ProductController@getAllProducts');
-Route::post('products', 'ProductController@insertProduct');
+Route::get('products', 'ProductController@getAllProduct');
+Route::get('product/{id}', 'ProductController@getProductById');
+Route::post('product', 'ProductController@insertProduct');

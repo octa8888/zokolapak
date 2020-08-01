@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    function getAllProducts(){
+    function getAllProduct(){
         $products=Product::all();
         return response()->json($products);
+    }
+
+    function getProductById($id){
+        $product=Product::find($id);
+        return response()->json($product);
     }
 
     function insertProduct(Request $req){
