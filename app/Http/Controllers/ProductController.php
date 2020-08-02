@@ -32,4 +32,16 @@ class ProductController extends Controller
             ]
         );
     }
+
+    function updateProduct(Request $req,$id){
+        $p=Product::find($id);
+        $p->product_name=$req->product_name?$req->product_name:$p->product_name;
+        $p->description=$req->description?$req->description:$p->description;
+        $p->price=$req->price?$req->price:$p->price;
+        $p->save();
+        return response()->json([
+            "message"=>"success update product data"
+        ]);
+    }
+    
 }

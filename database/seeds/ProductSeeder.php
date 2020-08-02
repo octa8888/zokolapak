@@ -17,5 +17,11 @@ class ProductSeeder extends Seeder
         $model->description='desc 1';
         $model->price=100000;
         $model->save();
+
+        $model=new Product();
+        $model->product_name='product 2';
+        $model->description='desc 2';
+        $model->price=30000;
+        $model->save();
     }
 }

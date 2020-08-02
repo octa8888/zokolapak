@@ -18,7 +18,7 @@ class CreateTableTransactionDetails extends Migration
             $table->foreign('transaction_id')->references('id')->on('transaction_headers')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('quatity');
+            $table->integer('quantity');
             $table->timestamps();
             $table->softDeletes();
         });

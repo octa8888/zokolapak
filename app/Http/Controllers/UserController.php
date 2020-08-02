@@ -25,7 +25,23 @@ class UserController extends Controller
         $user->address=$req->address;
         $user->phone=$req->phone;
         $user->password=Hash::make($req->password);
+        $user->save();
+        return response()->json([
+            "name"=>$user->name,
+            "email"=>$user->email
+        ]);
     }
 
-    
+    function updateUser(Request $req, $id){
+        $user=User::find($id);
+        $user->name=$req->name?$req->name:$user->name;
+        $user->email=$req->email?$req->email:$user->email;
+        $user->address=$req->address?$req->address:$user->address;
+        $user->phone=$req->phone?$req->phone:$user->phone;
+        $user->password=$req->password?Hash::make($req->password):$user->password;
+        $user->save();
+        return response()->json([
+            "message"=>"success update user data"
+        ]);
+    }
 }

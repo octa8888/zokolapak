@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\CartController;
 use Illuminate\Http\Request;
 
 /*
@@ -23,7 +25,11 @@ use Illuminate\Http\Request;
 Route::get('users', 'UserController@getAllUser');
 Route::get('user/{id}', 'UserController@getUserById');
 Route::post('user', 'UserController@insertUser');
+Route::put('user/{id}', 'UserController@updateUser');
 
 Route::get('products', 'ProductController@getAllProduct');
 Route::get('product/{id}', 'ProductController@getProductById');
 Route::post('product', 'ProductController@insertProduct');
+Route::put('product/{id}', 'ProductController@updateProduct');
+
+Route::get('transaction/{id}', 'TransactionController@getTransactionByUserId');

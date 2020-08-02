@@ -18,7 +18,7 @@ class CreateTableCartDetails extends Migration
             $table->foreign('cart_id')->references('id')->on('cart_headers')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('quatity');
+            $table->integer('quantity');
             $table->timestamps();
             $table->softDeletes();
         });
