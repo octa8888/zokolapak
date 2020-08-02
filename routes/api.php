@@ -32,4 +32,6 @@ Route::get('product/{id}', 'ProductController@getProductById');
 Route::post('product', 'ProductController@insertProduct');
 Route::put('product/{id}', 'ProductController@updateProduct');
 
-Route::get('transaction/{id}', 'TransactionController@getTransactionByUserId');
+Route::get('transactions/user/{id}', 'TransactionController@getTransactionsByUserId');
+
+Route::get('cart/user/{id}', 'CartController@getCartByUserId');
