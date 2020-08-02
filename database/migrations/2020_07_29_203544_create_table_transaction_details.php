@@ -14,6 +14,7 @@ class CreateTableTransactionDetails extends Migration
     public function up()
     {
         Schema::create('transaction_details', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('transaction_id');
             $table->foreign('transaction_id')->references('id')->on('transaction_headers')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('product_id');

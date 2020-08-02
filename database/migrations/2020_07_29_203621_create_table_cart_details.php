@@ -14,6 +14,7 @@ class CreateTableCartDetails extends Migration
     public function up()
     {
         Schema::create('cart_details', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('cart_id');
             $table->foreign('cart_id')->references('id')->on('cart_headers')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('product_id');
